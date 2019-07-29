@@ -1,8 +1,5 @@
 package.zip:
-	LATEST_RELEASE=$(curl -L -s -H 'Accept: application/json' https://github.com/launchdarkly/roku-client-sdk/releases/latest)
-	LATEST_VERSION=$(echo $LATEST_RELEASE | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')
-	ARTIFACT_URL="https://github.com/account/project/releases/download/$(LATEST_VERSION)/package.zip"
-	curl $(ARTIFACT_URL) -o package.zip
+	./fetch.sh
 
 package: package.zip
 	rm -rf package
@@ -20,4 +17,4 @@ build: $(shell find app/ -type f) copyLibrary
 	cd app && zip ../app.zip -r ./*
 
 clean:
-	rm -rf app.zip package app/components/LaunchDarkly* app/source/LaunchDarkly*
+	rm -rf package.zip app.zip package app/components/LaunchDarkly* app/source/LaunchDarkly*
