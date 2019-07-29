@@ -14,4 +14,4 @@ build: $(shell find app/ -type f) copyLibrary
 	cd app && zip ../app.zip -r ./*
 
 clean:
-	rm -f app.zip
+	rm -rf app.zip package app/components/LaunchDarkly* app/source/LaunchDarkly*
