@@ -5,7 +5,7 @@
         <LaunchDarklyTask id="launchDarkly"/>
 
         <Label id="myLabel"
-            text="wait on label"
+            text="waiting for flag to be set"
           	width="1280"
           	height="720"
           	horizAlign="center"

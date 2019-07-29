@@ -11,4 +11,7 @@ copyLibrary: package
 
 build: $(shell find app/ -type f) copyLibrary
 	rm -f app.zip
-	zip -r app.zip app/
+	cd app && zip ../app.zip -r ./*
+
+clean:
+	rm -f app.zip
