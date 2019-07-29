@@ -1,5 +1,5 @@
 function onChange() as Void
-    v = m.ld.variation("hello-roku", false)
+    v = m.ld.variation("YOUR FLAG KEY HERE", false)
     print "evaluation: " v
 
     if v then
@@ -12,7 +12,7 @@ end function
 function init() as Void
     launchDarklyNode = m.top.findNode("launchDarkly")
 
-    config = LaunchDarklyConfig("mob-", launchDarklyNode)
+    config = LaunchDarklyConfig("YOUR MOBILE KEY HERE", launchDarklyNode)
     config.setLogLevel(LaunchDarklyLogLevels().debug)
 
     user = LaunchDarklyUser("user-key")
