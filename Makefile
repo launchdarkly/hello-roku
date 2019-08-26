@@ -1,3 +1,7 @@
+build: $(shell find app/ -type f) copyLibrary
+	rm -f app.zip
+	cd app && zip ../app.zip -r ./*
+
 package.zip:
 	./fetch.sh
 
@@ -11,10 +15,6 @@ copyLibrary: package
 	cp package/LaunchDarkly.brs app/source/
 	cp package/LaunchDarklyTask.brs app/components/
 	cp package/LaunchDarklyTask.xml app/components/
-
-build: $(shell find app/ -type f) copyLibrary
-	rm -f app.zip
-	cd app && zip ../app.zip -r ./*
 
 clean:
 	rm -rf package.zip app.zip package app/components/LaunchDarkly* app/source/LaunchDarkly*
