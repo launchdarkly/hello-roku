@@ -9,7 +9,7 @@ function onFeatureChange() as Void
     end if
 end function
 
-function onStatusChange () as Void
+function onStatusChange() as Void
     status = m.ld.status.getStatusAsString()
     print "status: " status
 
@@ -35,7 +35,7 @@ function init() as Void
     m.clientStatus = m.top.findNode("clientStatus")
 
     launchDarklyNode.observeField("flags", "onFeatureChange")
-    launchDarklyNode.observeField("clientStatus", "onStatusChange")
+    launchDarklyNode.observeField("status", "onStatusChange")
 
     onFeatureChange()
     onStatusChange()
