@@ -1,8 +1,8 @@
 // Set featureFlagKey to the feature flag key you want to evaluate.
-const featureFlagKey = "my-boolean-flag"
+featureFlagKey = "my-boolean-flag"
 
 // Set mobileKey to your LaunchDarkly mobile key.
-const mobileKey = ""
+mobileKey = ""
 
 function onFeatureChange() as Void
     value = m.ld.variation(featureFlagKey, false)

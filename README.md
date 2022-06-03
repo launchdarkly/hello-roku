@@ -7,9 +7,9 @@ Below, you'll find the basic build procedure, but for more comprehensive instruc
 1. Edit `app/components/AppScene.brs` and set the value of `mobileKey` to your LaunchDarkly mobile SDK key. If there is an existing boolean feature flag in your LaunchDarkly project that you want to evaluate, set `featureFlagKey` to to the flag key.
 
 ```brightscript
-const featureFlagKey = "my-boolean-flag"
+featureFlagKey = "my-boolean-flag"
 
-const mobileKey = "1234567890abcdef"
+mobileKey = "1234567890abcdef"
 ```
 
 2. On the command line, run `make`.
