@@ -34,7 +34,6 @@ function init() as Void
     user.setName("Sandy")
 
     LaunchDarklySGInit(config, user)
-    // TKTK initialization success/failure messages needed.
     
     m.ld = LaunchDarklySG(launchDarklyNode)
 
