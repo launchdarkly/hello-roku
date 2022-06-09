@@ -15,4 +15,4 @@ mobileKey = "1234567890abcdef"
 2. On the command line, run `make`.
 3. Upload `app.zip` to your device.
 
-You should see the message "Feature flag '<flag key>' is <true/false> for this user".
+You should receive the message "Feature flag '<flag key>' is <true/false> for this user".
