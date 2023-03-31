@@ -1,10 +1,12 @@
-' Set featureFlagKey to the feature flag key you want to evaluate.
-featureFlagKey = "my-boolean-flag"
-
-' Set mobileKey to your LaunchDarkly mobile key.
-mobileKey = ""
+' Before running this example, please
+'
+' 1. Specify your preferred flag by setting featureFlagKey
+' 2. Specify your mobile key by setting mobileKey
 
 function onFeatureChange() as Void
+    ' TODO: Set featureFlagKey to the feature flag key you want to evaluate.
+    featureFlagKey = "my-boolean-flag"
+
     value = m.ld.variation(featureFlagKey, false)
     print "evaluation: " value
 
@@ -23,6 +25,9 @@ function onStatusChange() as Void
 end function
 
 function init() as Void
+    ' TODO: Set mobileKey to your LaunchDarkly mobile key.
+    mobileKey = ""
+
     launchDarklyNode = m.top.findNode("launchDarkly")
 
     config = LaunchDarklyConfig(mobileKey, launchDarklyNode)
