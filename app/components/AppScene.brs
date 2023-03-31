@@ -24,17 +24,17 @@ end function
 
 function init() as Void
     launchDarklyNode = m.top.findNode("launchDarkly")
-    
+
     config = LaunchDarklyConfig(mobileKey, launchDarklyNode)
     config.setLogLevel(LaunchDarklyLogLevels().debug)
-  
+
     // Set up the user properties. This user should appear on your LaunchDarkly users dashboard
     // soon after you run the demo.
     user = LaunchDarklyUser("example-user-key")
     user.setName("Sandy")
 
     LaunchDarklySGInit(config, user)
-    
+
     m.ld = LaunchDarklySG(launchDarklyNode)
 
     m.featureStatus = m.top.findNode("featureStatus")
