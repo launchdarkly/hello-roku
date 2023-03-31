@@ -11,9 +11,9 @@ function onFeatureChange() as Void
     print "evaluation: " value
 
     if value then
-        m.featureStatus.text = "Feature flag " + featureFlagKey + " is true for this user"
+        m.featureStatus.text = "Feature flag " + featureFlagKey + " is true for this context"
     else
-        m.featureStatus.text = "Feature flag " + featureFlagKey + " is false for this user"
+        m.featureStatus.text = "Feature flag " + featureFlagKey + " is false for this context"
     end if
 end function
 
@@ -33,12 +33,11 @@ function init() as Void
     config = LaunchDarklyConfig(mobileKey, launchDarklyNode)
     config.setLogLevel(LaunchDarklyLogLevels().debug)
 
-    ' Set up the user properties. This user should appear on your LaunchDarkly users dashboard
-    ' soon after you run the demo.
-    user = LaunchDarklyUser("example-user-key")
-    user.setName("Sandy")
+    ' Set up the user-kind context properties. This context should appear on
+    ' your LaunchDarkly contexts dashboard soon after you run the demo.
+    context = LaunchDarklyCreateContext({kind: "user", key: "example-user-key", name: "Sandy"})
 
-    LaunchDarklySGInit(config, user)
+    LaunchDarklySGInit(config, context)
 
     m.ld = LaunchDarklySG(launchDarklyNode)
 
