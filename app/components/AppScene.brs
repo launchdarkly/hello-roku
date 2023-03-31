@@ -1,7 +1,7 @@
-// Set featureFlagKey to the feature flag key you want to evaluate.
+' Set featureFlagKey to the feature flag key you want to evaluate.
 featureFlagKey = "my-boolean-flag"
 
-// Set mobileKey to your LaunchDarkly mobile key.
+' Set mobileKey to your LaunchDarkly mobile key.
 mobileKey = ""
 
 function onFeatureChange() as Void
@@ -28,8 +28,8 @@ function init() as Void
     config = LaunchDarklyConfig(mobileKey, launchDarklyNode)
     config.setLogLevel(LaunchDarklyLogLevels().debug)
 
-    // Set up the user properties. This user should appear on your LaunchDarkly users dashboard
-    // soon after you run the demo.
+    ' Set up the user properties. This user should appear on your LaunchDarkly users dashboard
+    ' soon after you run the demo.
     user = LaunchDarklyUser("example-user-key")
     user.setName("Sandy")
 
