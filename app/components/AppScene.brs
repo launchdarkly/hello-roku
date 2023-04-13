@@ -1,17 +1,19 @@
-// Set featureFlagKey to the feature flag key you want to evaluate.
-featureFlagKey = "my-boolean-flag"
-
-// Set mobileKey to your LaunchDarkly mobile key.
-mobileKey = ""
+' Before running this example, please
+'
+' 1. Specify your preferred flag by setting featureFlagKey
+' 2. Specify your mobile key by setting mobileKey
 
 function onFeatureChange() as Void
+    ' TODO: Set featureFlagKey to the feature flag key you want to evaluate.
+    featureFlagKey = "my-boolean-flag"
+
     value = m.ld.variation(featureFlagKey, false)
     print "evaluation: " value
 
     if value then
-        m.featureStatus.text = "Feature flag " + featureFlagKey + " is true for this user"
+        m.featureStatus.text = "Feature flag " + featureFlagKey + " is true for this context"
     else
-        m.featureStatus.text = "Feature flag " + featureFlagKey + " is false for this user"
+        m.featureStatus.text = "Feature flag " + featureFlagKey + " is false for this context"
     end if
 end function
 
@@ -23,18 +25,20 @@ function onStatusChange() as Void
 end function
 
 function init() as Void
+    ' TODO: Set mobileKey to your LaunchDarkly mobile key.
+    mobileKey = ""
+
     launchDarklyNode = m.top.findNode("launchDarkly")
-    
+
     config = LaunchDarklyConfig(mobileKey, launchDarklyNode)
     config.setLogLevel(LaunchDarklyLogLevels().debug)
-  
-    // Set up the user properties. This user should appear on your LaunchDarkly users dashboard
-    // soon after you run the demo.
-    user = LaunchDarklyUser("example-user-key")
-    user.setName("Sandy")
 
-    LaunchDarklySGInit(config, user)
-    
+    ' Set up the user-kind context properties. This context should appear on
+    ' your LaunchDarkly contexts dashboard soon after you run the demo.
+    context = LaunchDarklyCreateContext({kind: "user", key: "example-user-key", name: "Sandy"})
+
+    LaunchDarklySGInit(config, context)
+
     m.ld = LaunchDarklySG(launchDarklyNode)
 
     m.featureStatus = m.top.findNode("featureStatus")

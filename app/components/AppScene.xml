@@ -8,6 +8,7 @@
             text="waiting on feature status"
             width="1280"
             height="720"
+            wrap="true"
             horizAlign="center"
             vertAlign="center"
         />
