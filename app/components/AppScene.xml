@@ -4,8 +4,8 @@
     <children>
         <LaunchDarklyTask id="launchDarkly"/>
 
-        <Label id="featureStatus"
-            text="waiting on feature status"
+        <Label id="evaluation"
+            text="waiting on payload to initialize"
             width="1280"
             height="720"
             wrap="true"
@@ -13,13 +13,15 @@
             vertAlign="center"
         />
 
-        <Label id="clientStatus"
-            text="waiting on client status"
+        <Label id="status"
+            text="waiting for sdk status report"
             width="1280"
             height="720"
-            horizAlign="right"
+            wrap="true"
+            horizAlign="center"
             vertAlign="bottom"
         />
+
     </children>
 
     <script type="text/brightscript" uri="pkg:/components/AppScene.brs"/>
