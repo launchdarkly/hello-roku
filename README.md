@@ -1,18 +1,27 @@
-# LaunchDarkly Sample Roku Application
-We've built a simple application that demonstrates how LaunchDarkly's SDK works. 
+# LaunchDarkly sample BrightScript application
 
-Below, you'll find the basic build procedure, but for more comprehensive instructions, you can visit your [Quickstart page](https://app.launchdarkly.com/quickstart#/) or the [Roku reference guide](https://docs.launchdarkly.com/sdk/client-side/roku).
+We've built a simple Roku application that demonstrates how LaunchDarkly's SDK works.
+
+Below, you'll find the build procedure. For more comprehensive instructions, you can visit your [Quickstart page](https://app.launchdarkly.com/quickstart#/) or the [BrightScript reference guide](https://docs.launchdarkly.com/sdk/client-side/roku).
 
 ## Build instructions
-1. Edit `app/components/AppScene.brs` and set the value of `mobileKey` to your LaunchDarkly mobile SDK key. If there is an existing boolean feature flag in your LaunchDarkly project that you want to evaluate, set `featureFlagKey` to the flag key.
+
+1. Set the value of `mobileKey` to your LaunchDarkly mobile key. If there is an existing boolean feature flag in your LaunchDarkly project that you want to evaluate, set `featureFlagKey` to the flag key.
 
 ```brightscript
-featureFlagKey = "my-boolean-flag"
+function onFeatureChange() as Void
+    featureFlagKey = "hello-ios-boolean"
+    ' ... snip
+end function
 
-mobileKey = "1234567890abcdef"
+function init() as Void
+    mobileKey = "mob-9dd0237c-ba5e-4ccd-903a-5b5703ea85d5"
+    ' ... snip
+end function
 ```
 
-2. On the command line, run `make`.
-3. Upload `app.zip` to your device.
+2. On the command line, run `make` to generate the installable `app.zip` file.
 
-You should receive the message "Feature flag '<flag key>' is <true/false> for this user".
+3. Upload `app.zip` to your Roku device.
+
+You should receive the message "The <flagKey> feature flag evaluates to <flagValue>.", the application will run continuously and react to the flag changes in LaunchDarkly.
