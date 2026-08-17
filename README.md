@@ -6,16 +6,16 @@ Below, you'll find the build procedure. For more comprehensive instructions, you
 
 ## Build instructions
 
-1. Set the value of `mobileKey` to your LaunchDarkly mobile key. If there is an existing boolean feature flag in your LaunchDarkly project that you want to evaluate, set `featureFlagKey` to the flag key.
+1. In `app/components/AppScene.brs`, set the value of `mobileKey` to your LaunchDarkly mobile key. If there is an existing boolean feature flag in your LaunchDarkly project that you want to evaluate, set `featureFlagKey` to the flag key.
 
 ```brightscript
 function onFeatureChange() as Void
-    featureFlagKey = "hello-ios-boolean"
+    featureFlagKey = "sample-feature"
     ' ... snip
 end function
 
 function init() as Void
-    mobileKey = "mob-9dd0237c-ba5e-4ccd-903a-5b5703ea85d5"
+    mobileKey = "mob-abcdef01-2345-6789-abcd-ef0123456789"
     ' ... snip
 end function
 ```
