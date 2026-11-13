@@ -24,4 +24,4 @@ end function
 
 3. Upload `app.zip` to your Roku device.
 
-You should receive the message "The <flagKey> feature flag evaluates to <flagValue>.", the application will run continuously and react to the flag changes in LaunchDarkly.
+You should see the message "The <flagKey> feature flag evaluates to <flagValue>." When the flag is true, the background turns green and the LaunchDarkly logo appears. The application runs continuously and reacts to flag changes in LaunchDarkly. The footer shows the SDK connection status.
