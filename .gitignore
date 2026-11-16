@@ -1,4 +1,7 @@
-app/
+# SDK files that `make` copies in from package/
+app/source/LaunchDarkly.brs
+app/components/LaunchDarklyTask.brs
+app/components/LaunchDarklyTask.xml
 app.zip
 
 package/

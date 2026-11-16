@@ -4,24 +4,39 @@
     <children>
         <LaunchDarklyTask id="launchDarkly"/>
 
-        <Label id="evaluation"
-            text="waiting on payload to initialize"
-            width="1280"
-            height="720"
-            wrap="true"
-            horizAlign="center"
-            vertAlign="center"
-        />
+        <Rectangle id="background" width="1280" height="720" color="0x373841FF"/>
 
-        <Label id="status"
-            text="waiting for sdk status report"
-            width="1280"
-            height="720"
-            wrap="true"
-            horizAlign="center"
-            vertAlign="bottom"
-        />
+        <!-- Header -->
+        <Poster id="headerLogo" uri="pkg:/images/logo.png" width="36" height="36" translation="[64,52]"/>
+        <Label id="headerTitle" text="LaunchDarkly" translation="[112,48]" height="44" vertAlign="center" color="0xFFFFFFFF">
+            <Font role="font" uri="font:BoldSystemFontFile" size="30"/>
+        </Label>
+        <Label id="headerSubtitle" text="Roku SDK sample" translation="[0,48]" width="1216" height="44" horizAlign="right" vertAlign="center" color="0xFFFFFFA0">
+            <Font role="font" uri="font:SystemFontFile" size="24"/>
+        </Label>
 
+        <!-- The logo appears when the flag is true. -->
+        <Poster id="logo" uri="pkg:/images/logo.png" width="220" height="220" translation="[530,140]" opacity="0"/>
+
+        <Label id="evaluation" text="Waiting for flag data..." translation="[64,390]" width="1152" wrap="true" horizAlign="center" color="0xFFFFFFFF">
+            <Font role="font" uri="font:BoldSystemFontFile" size="44"/>
+        </Label>
+        <Label id="context" text="" translation="[64,470]" width="1152" horizAlign="center" color="0xFFFFFFA0">
+            <Font role="font" uri="font:SystemFontFile" size="24"/>
+        </Label>
+
+        <!-- Footer -->
+        <Poster id="statusDot" uri="pkg:/images/dot.png" width="16" height="16" translation="[64,658]" blendColor="0xF2B33DFF"/>
+        <Label id="status" text="Connecting to LaunchDarkly..." translation="[92,650]" width="1124" height="32" vertAlign="center" color="0xFFFFFFD0">
+            <Font role="font" uri="font:SystemFontFile" size="22"/>
+        </Label>
+
+        <Animation id="backgroundAnimation" duration="0.6" easeFunction="outCubic">
+            <ColorFieldInterpolator id="backgroundInterpolator" key="[0.0, 1.0]" fieldToInterp="background.color"/>
+        </Animation>
+        <Animation id="logoAnimation" duration="0.6" easeFunction="outCubic">
+            <FloatFieldInterpolator id="logoInterpolator" key="[0.0, 1.0]" fieldToInterp="logo.opacity"/>
+        </Animation>
     </children>
 
     <script type="text/brightscript" uri="pkg:/components/AppScene.brs"/>
